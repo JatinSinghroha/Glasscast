@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F06D0EFF2F21054A00EA65BC /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = F06D0E1B2F20F70000EA65BC /* Supabase */; };
+		F06D0F532F210B3E00EA65BC /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F06D0F522F210B3E00EA65BC /* Config.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F06D0DFD2F20F6BA00EA65BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +32,25 @@
 		F06D0DEF2F20F6B900EA65BC /* Glasscast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glasscast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F06D0DFC2F20F6BA00EA65BC /* GlasscastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlasscastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F06D0E062F20F6BA00EA65BC /* GlasscastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlasscastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F06D0F522F210B3E00EA65BC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F06D105C2F210EAD00EA65BC /* Exceptions for "Glasscast" folder in "Glasscast" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F06D0DEE2F20F6B900EA65BC /* Glasscast */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F06D0DF12F20F6B900EA65BC /* Glasscast */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F06D105C2F210EAD00EA65BC /* Exceptions for "Glasscast" folder in "Glasscast" target */,
+			);
 			path = Glasscast;
 			sourceTree = "<group>";
 		};
@@ -52,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06D0EFF2F21054A00EA65BC /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +99,7 @@
 				F06D0DFF2F20F6BA00EA65BC /* GlasscastTests */,
 				F06D0E092F20F6BA00EA65BC /* GlasscastUITests */,
 				F06D0DF02F20F6B900EA65BC /* Products */,
+				F06D0F522F210B3E00EA65BC /* Config.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +133,7 @@
 			);
 			name = Glasscast;
 			packageProductDependencies = (
+				F06D0E1B2F20F70000EA65BC /* Supabase */,
 			);
 			productName = Glasscast;
 			productReference = F06D0DEF2F20F6B900EA65BC /* Glasscast.app */;
@@ -195,6 +217,9 @@
 			);
 			mainGroup = F06D0DE62F20F6B900EA65BC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F06D0E1A2F20F70000EA65BC /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F06D0DF02F20F6B900EA65BC /* Products */;
 			projectDirPath = "";
@@ -212,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06D0F532F210B3E00EA65BC /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +297,7 @@
 /* Begin XCBuildConfiguration section */
 		F06D0E0E2F20F6BA00EA65BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F06D0F522F210B3E00EA65BC /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -335,6 +362,7 @@
 		};
 		F06D0E0F2F20F6BA00EA65BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F06D0F522F210B3E00EA65BC /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -392,6 +420,7 @@
 		};
 		F06D0E112F20F6BA00EA65BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F06D0F522F210B3E00EA65BC /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -399,12 +428,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PVL8J6LW89;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Glasscast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,6 +449,7 @@
 		};
 		F06D0E122F20F6BA00EA65BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F06D0F522F210B3E00EA65BC /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,12 +457,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PVL8J6LW89;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Glasscast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -578,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F06D0E1A2F20F70000EA65BC /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F06D0E1B2F20F70000EA65BC /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F06D0E1A2F20F70000EA65BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F06D0DE72F20F6B900EA65BC /* Project object */;
 }
