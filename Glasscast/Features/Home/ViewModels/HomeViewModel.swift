@@ -89,6 +89,9 @@ final class HomeViewModel {
 
             weather = updatedWeather
             forecast = forecastResult
+
+            // Save to widget shared storage
+            SharedDataManager.shared.saveWeatherForWidget(updatedWeather, cityName: city.cityName)
         } catch is CancellationError {
             // Ignore cancellation - this is normal during navigation/refresh
         } catch {

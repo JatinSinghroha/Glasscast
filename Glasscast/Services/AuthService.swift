@@ -195,6 +195,9 @@ final class AuthService: ObservableObject {
 
         // Clear persisted selected city
         UserDefaults.standard.removeObject(forKey: "selectedCityId")
+
+        // Clear widget shared data
+        SharedDataManager.shared.clearAll()
     }
 
     func getCurrentUserId() -> UUID? {

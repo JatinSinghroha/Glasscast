@@ -17,6 +17,29 @@ struct WeatherEntry: TimelineEntry {
     let lowTemp: Int
     let isPlaceholder: Bool
 
+    /// Initialize from shared weather data
+    init(from data: WidgetWeatherData) {
+        self.date = data.updatedAt
+        self.cityName = data.cityName
+        self.temperature = Int(round(data.temperature))
+        self.condition = data.condition
+        self.conditionIcon = data.conditionIcon
+        self.highTemp = Int(round(data.tempMax))
+        self.lowTemp = Int(round(data.tempMin))
+        self.isPlaceholder = false
+    }
+
+    init(date: Date, cityName: String, temperature: Int, condition: String, conditionIcon: String, highTemp: Int, lowTemp: Int, isPlaceholder: Bool) {
+        self.date = date
+        self.cityName = cityName
+        self.temperature = temperature
+        self.condition = condition
+        self.conditionIcon = conditionIcon
+        self.highTemp = highTemp
+        self.lowTemp = lowTemp
+        self.isPlaceholder = isPlaceholder
+    }
+
     static var placeholder: WeatherEntry {
         WeatherEntry(
             date: Date(),
@@ -51,25 +74,37 @@ struct WeatherProvider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> Void) {
-        completion(.preview)
+        // Try to get real data for snapshot, fall back to preview
+        if let weatherData = WidgetDataReader.shared.loadWeatherData() {
+            let entry = WeatherEntry(from: weatherData)
+            completion(entry)
+        } else {
+            completion(.preview)
+        }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
-        // For now, use static data
-        // In a real app, this would fetch from shared UserDefaults/App Group
-        let entry = WeatherEntry(
-            date: Date(),
-            cityName: "San Francisco",
-            temperature: 18,
-            condition: "Clear",
-            conditionIcon: "sun.max.fill",
-            highTemp: 22,
-            lowTemp: 14,
-            isPlaceholder: false
-        )
+        let entry: WeatherEntry
 
-        // Update every hour
-        let nextUpdate = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
+        // Load real weather data from shared App Group storage
+        if let weatherData = WidgetDataReader.shared.loadWeatherData() {
+            entry = WeatherEntry(from: weatherData)
+        } else {
+            // No data yet - show placeholder
+            entry = WeatherEntry(
+                date: Date(),
+                cityName: "Open App",
+                temperature: 0,
+                condition: "No Data",
+                conditionIcon: "cloud.fill",
+                highTemp: 0,
+                lowTemp: 0,
+                isPlaceholder: true
+            )
+        }
+
+        // Update every 30 minutes
+        let nextUpdate = Calendar.current.date(byAdding: .minute, value: 30, to: Date())!
         let timeline = Timeline(entries: [entry], policy: .after(nextUpdate))
         completion(timeline)
     }
