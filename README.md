@@ -19,6 +19,12 @@ A minimal weather app built with iOS 26's Liquid Glass design language.
 
 ## Screenshots
 
+### Authentication
+
+| Login | OTP Verification |
+|:---:|:---:|
+| ![Login](Screenshots/login.png) | ![OTP](Screenshots/otp.png) |
+
 ### Dark Mode
 
 | Home | My Cities | Favorites |
