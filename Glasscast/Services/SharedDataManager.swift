@@ -7,35 +7,18 @@
 import Foundation
 import WidgetKit
 
-/// Shared data structure for widget weather display
-struct WidgetWeatherData: Codable {
-    let cityName: String
-    let temperature: Double
-    let tempMin: Double
-    let tempMax: Double
-    let condition: String
-    let conditionIcon: String
-    let updatedAt: Date
-
-    /// Convert Weather model to WidgetWeatherData
+/// Extension to create WidgetWeatherData from Weather model (main app only)
+extension WidgetWeatherData {
     init(from weather: Weather, cityName: String) {
-        self.cityName = cityName
-        self.temperature = weather.temperature
-        self.tempMin = weather.tempMin
-        self.tempMax = weather.tempMax
-        self.condition = weather.condition.rawValue
-        self.conditionIcon = weather.condition.iconName
-        self.updatedAt = Date()
-    }
-
-    init(cityName: String, temperature: Double, tempMin: Double, tempMax: Double, condition: String, conditionIcon: String, updatedAt: Date) {
-        self.cityName = cityName
-        self.temperature = temperature
-        self.tempMin = tempMin
-        self.tempMax = tempMax
-        self.condition = condition
-        self.conditionIcon = conditionIcon
-        self.updatedAt = updatedAt
+        self.init(
+            cityName: cityName,
+            temperature: weather.temperature,
+            tempMin: weather.tempMin,
+            tempMax: weather.tempMax,
+            condition: weather.condition.rawValue,
+            conditionIcon: weather.condition.iconName,
+            updatedAt: Date()
+        )
     }
 }
 

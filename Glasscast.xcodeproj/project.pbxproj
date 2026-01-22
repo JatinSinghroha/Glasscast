@@ -82,7 +82,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				GlasscastWidget.swift,
-				GlasscastWidgetsBundle.swift,
 				SharedWeatherData.swift,
 			);
 			target = F06D0DEE2F20F6B900EA65BC /* Glasscast */;
